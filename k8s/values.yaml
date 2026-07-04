@@ -1,0 +1,8 @@
+# Harness reads this values.yaml and injects it into the Go-templated manifests.
+# The magic line is `image` — <+artifact.image> resolves to the image your CI stage
+# built and pushed to Artifactory, so CD deploys exactly what CI produced.
+
+name: harness-demo
+replicas: 3                    # canary will deploy a subset of these first
+image: <+artifact.image>       # Harness injects the built image + tag here
+namespace: default

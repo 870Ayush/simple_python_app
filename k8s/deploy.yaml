@@ -1,0 +1,41 @@
+# Single Deployment = the one managed workload Harness Canary supports.
+# Go-templated so Harness fills in name/image/replicas from values.yaml.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.name}}
+  namespace: {{.Values.namespace}}
+spec:
+  replicas: {{.Values.replicas}}
+  selector:
+    matchLabels:
+      app: {{.Values.name}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.name}}
+    spec:
+      containers:
+        - name: {{.Values.name}}
+          image: {{.Values.image}}
+          ports:
+            - containerPort: 8080
+          readinessProbe:            # so traffic only hits ready pods (zero-downtime)
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:             # restart if the app wedges
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:                 # requests/limits = good practice + enables HPA later
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi

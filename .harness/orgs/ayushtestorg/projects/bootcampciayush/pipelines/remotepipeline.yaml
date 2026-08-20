@@ -1,0 +1,43 @@
+pipeline:
+  name: remote-pipeline
+  identifier: remotepipeline
+  projectIdentifier: bootcampciayush
+  orgIdentifier: ayushtestorg
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: github870Ayush
+        repoName: simple_python_app
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: buildinfra
+              namespace: default
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run-Build
+                  identifier: RunBuild
+                  spec:
+                    connectorRef: ayushdockerconnector
+                    image: 22ayush22/personal-repo
+                    shell: Bash

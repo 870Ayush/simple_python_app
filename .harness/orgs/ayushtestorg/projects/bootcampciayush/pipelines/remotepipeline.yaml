@@ -34,10 +34,10 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: Run
-                  name: Run-Build
-                  identifier: RunBuild
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: ayushdockerconnector
-                    image: 22ayush22/personal-repo
-                    shell: Bash
+                    repo: 22ayush22/personal-repo
+                    tags: <+input>

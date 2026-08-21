@@ -1,0 +1,5 @@
+service:
+  name: remote-service
+  identifier: remoteservice
+  orgIdentifier: ayushtestorg
+  projectIdentifier: ayushlab

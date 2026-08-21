@@ -1,5 +1,5 @@
 pipeline:
-  name: chianed-pipeline
+  name: chained-pipeline
   identifier: chianedpipeline
   projectIdentifier: ayushlab
   orgIdentifier: ayushtestorg
@@ -42,3 +42,29 @@ pipeline:
                     image: library/nginx
                     shell: Bash
                     command: pwd
+    - stage:
+        name: chained-deploy
+        identifier: chaineddeploy
+        description: ""
+        type: Pipeline
+        spec:
+          org: ayushtestorg
+          project: ayushlab
+          pipeline: ayushcanary
+          inputs:
+            identifier: ayushcanary
+            stages:
+              - stage:
+                  identifier: deploycanary
+                  type: Deployment
+                  spec:
+                    service:
+                      serviceInputs:
+                        serviceDefinition:
+                          type: Kubernetes
+                          spec:
+                            artifacts:
+                              primary:
+                                primaryArtifactRef: <+input>
+                                sources: <+input>
+          outputs: []

@@ -1,0 +1,37 @@
+service:
+  name: remote-service
+  identifier: remoteservice
+  orgIdentifier: ayushtestorg
+  projectIdentifier: ayushlab
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: remoteManifest
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: Ayush
+                  gitFetchType: Branch
+                  paths:
+                    - default-k8s-manifests/Manifests/Files/templates
+                  repoName: harness-docs
+                  branch: main
+              valuesPaths:
+                - default-k8s-manifests/Manifests/Files
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: dockerk8stest
+                imagePath: library/python
+                tag: <+input>
+                digest: ""
+              identifier: remoteArtifact
+              type: DockerRegistry
+    type: Kubernetes

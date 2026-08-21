@@ -16,11 +16,11 @@ service:
                   connectorRef: Ayush
                   gitFetchType: Branch
                   paths:
-                    - default-k8s-manifests/Manifests/Files/templates
-                  repoName: harness-docs
+                    - templates
+                  repoName: k8manifest
                   branch: main
               valuesPaths:
-                - default-k8s-manifests/Manifests/Files
+                - ng_values_dockercfg.yaml
               skipResourceVersioning: false
               enableDeclarativeRollback: false
       artifacts:

@@ -1,6 +1,6 @@
 {
     "launchType": "FARGATE",
-    "serviceName": ayush-test-service,
+    "serviceName": "ayush-test-service",
     "desiredCount": 1,
     "networkConfiguration": {
         "awsvpcConfiguration": {

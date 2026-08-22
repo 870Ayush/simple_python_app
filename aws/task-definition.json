@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "Main",
-            "image": "index.docker.io/22ayush22/personal-repo:2",
+            "image": "<+artifacts.primary.image>",
             "cpu": 0,
             "portMappings": [
                 {

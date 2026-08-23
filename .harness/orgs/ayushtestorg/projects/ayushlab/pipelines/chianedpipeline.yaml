@@ -50,7 +50,7 @@ pipeline:
         spec:
           org: ayushtestorg
           project: ayushlab
-          pipeline: ayushcanary
+          pipeline: nativehelm
           inputs:
             identifier: ayushcanary
             stages:

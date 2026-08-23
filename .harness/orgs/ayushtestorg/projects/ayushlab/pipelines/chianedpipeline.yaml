@@ -43,6 +43,30 @@ pipeline:
                     shell: Bash
                     command: pwd
     - stage:
+        name: approve-deploy
+        identifier: approvedeploy
+        description: ""
+        type: Approval
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: approve-deploy
+                  identifier: approvedeploy
+                  type: HarnessApproval
+                  timeout: 2m
+                  spec:
+                    approvalMessage: Please approve to deploy this build to aws
+                    includePipelineExecutionHistory: true
+                    approvers:
+                      minimumCount: 1
+                      disallowPipelineExecutor: false
+                      userGroups:
+                        - _project_all_users
+                    isAutoRejectEnabled: false
+                    approverInputs: []
+        tags: {}
+    - stage:
         name: chained-deploy
         identifier: chaineddeploy
         description: ""

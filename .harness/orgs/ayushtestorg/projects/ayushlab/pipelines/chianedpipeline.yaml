@@ -50,18 +50,18 @@ pipeline:
         spec:
           org: ayushtestorg
           project: ayushlab
-          pipeline: nativehelm
+          pipeline: awspipeline
           inputs:
-            identifier: ayushcanary
+            identifier: awspipeline
             stages:
               - stage:
-                  identifier: deploycanary
+                  identifier: aws
                   type: Deployment
                   spec:
                     service:
                       serviceInputs:
                         serviceDefinition:
-                          type: Kubernetes
+                          type: ECS
                           spec:
                             artifacts:
                               primary:

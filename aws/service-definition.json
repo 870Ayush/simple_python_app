@@ -6,7 +6,7 @@
     {
       "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:915632791698:targetgroup/ayush-green-tg/6b0187e719b84318",
       "containerName": "Main",
-      "containerPort": 80
+      "containerPort": 5000
     }
   ],
   "networkConfiguration": {
@@ -30,7 +30,7 @@
       ],
       "assignPublicIp": "ENABLED"
     }
-  ],
+  },
   "deploymentConfiguration": {
     "maximumPercent": 200,
     "minimumHealthyPercent": 100

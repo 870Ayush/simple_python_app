@@ -4,7 +4,7 @@
   "desiredCount": 1,
   "loadBalancers": [
     {
-      "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:915632791698:targetgroup/ayush-green-tg/6b0187e719b84318",
+      "targetGroupArn": "<+targetGroupArn>",
       "containerName": "Main",
       "containerPort": 5000
     }

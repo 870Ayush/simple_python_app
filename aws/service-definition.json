@@ -1,31 +1,38 @@
 {
-    "launchType": "FARGATE",
-    "serviceName": "ayush-test-service",
-    "desiredCount": 1,
-    "networkConfiguration": {
-        "awsvpcConfiguration": {
-            "securityGroups": [
-                "sg-f24295a8"
-            ],
-            "subnets": [
-                "subnet-05c50fe879bc28c7d",
-                "subnet-7e83df50",
-                "subnet-b14918d6",
-                "subnet-007a4349dc5521290",
-                "subnet-07554740fea5da269",
-                "subnet-5dfb9e63",
-                "subnet-80a6f4dc",
-                "subnet-543edf19",
-                "subnet-074334eb372a88894",
-                "subnet-0ac5ce05",
-                "subnet-0ec05398ef467e0af",
-                "subnet-05587f849972a5771"
-            ],
-            "assignPublicIp": "ENABLED"
-        }
-    },
-    "deploymentConfiguration": {
-        "maximumPercent": 100,
-        "minimumHealthyPercent": 0
+  "launchType": "FARGATE",
+  "serviceName": "ayush-test-service",
+  "desiredCount": 1,
+  "loadBalancers": [
+    {
+      "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:915632791698:targetgroup/ayush-green-tg/6b0187e719b84318",
+      "containerName": "Main",
+      "containerPort": 80
     }
+  ],
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "securityGroups": [
+        "sg-f24295a8"
+      ],
+      "subnets": [
+        "subnet-05c50fe879bc28c7d",
+        "subnet-7e83df50",
+        "subnet-b14918d6",
+        "subnet-007a4349dc5521290",
+        "subnet-07554740fea5da269",
+        "subnet-5dfb9e63",
+        "subnet-80a6f4dc",
+        "subnet-543edf19",
+        "subnet-074334eb372a88894",
+        "subnet-0ac5ce05",
+        "subnet-0ec05398ef467e0af",
+        "subnet-05587f849972a5771"
+      ],
+      "assignPublicIp": "ENABLED"
+    }
+  ],
+  "deploymentConfiguration": {
+    "maximumPercent": 200,
+    "minimumHealthyPercent": 100
+  }
 }

@@ -23,3 +23,7 @@ template:
                 environmentVariables: []
                 outputVariables: []
               timeout: 10m
+          - insert:
+              name: INSERTSTEP
+              identifier: INSERTSTEP
+              steps: <+input>

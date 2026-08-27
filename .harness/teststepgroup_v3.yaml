@@ -1,0 +1,25 @@
+template:
+  name: teststepgroup
+  identifier: teststepgroup
+  versionLabel: v3
+  type: StepGroup
+  projectIdentifier: bootcampciayush
+  orgIdentifier: ayushtestorg
+  tags: {}
+  spec:
+    stageType: Custom
+    steps:
+      - step:
+          type: ShellScript
+          name: ShellScript_1
+          identifier: ShellScript_1
+          spec:
+            shell: Bash
+            executionTarget: {}
+            source:
+              type: Inline
+              spec:
+                script: echo "hiiii"
+            environmentVariables: []
+            outputVariables: []
+          timeout: 10m

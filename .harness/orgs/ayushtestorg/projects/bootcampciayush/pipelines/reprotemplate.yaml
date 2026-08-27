@@ -19,10 +19,4 @@ pipeline:
                 steps:
                   - insert:
                       identifier: yugyj
-                      steps:
-                        - stepGroup:
-                            name: test-step-group
-                            identifier: teststepgroup
-                            template:
-                              templateRef: teststepgroup
-                              versionLabel: v3
+                      steps: <+input>

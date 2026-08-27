@@ -1,0 +1,25 @@
+template:
+  name: remotestage
+  identifier: remotestage
+  versionLabel: v1
+  type: Stage
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              type: ShellScript
+              name: ShellScript_1
+              identifier: ShellScript_1
+              spec:
+                shell: Bash
+                executionTarget: {}
+                source:
+                  type: Inline
+                  spec:
+                    script: echo "my name is ayush"
+                environmentVariables: []
+                outputVariables: []
+              timeout: 10m

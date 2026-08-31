@@ -23,7 +23,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: pwd
+                        script: echo "hello from remote"
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m

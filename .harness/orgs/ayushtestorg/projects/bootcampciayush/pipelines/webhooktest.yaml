@@ -1,0 +1,30 @@
+pipeline:
+  name: webhook-test
+  identifier: webhooktest
+  projectIdentifier: bootcampciayush
+  orgIdentifier: ayushtestorg
+  tags: {}
+  stages:
+    - stage:
+        name: custom
+        identifier: custom
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: pwd
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}

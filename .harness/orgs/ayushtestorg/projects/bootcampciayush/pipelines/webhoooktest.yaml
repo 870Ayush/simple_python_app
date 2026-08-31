@@ -1,0 +1,30 @@
+pipeline:
+  name: webhoook-test
+  identifier: webhoooktest
+  projectIdentifier: bootcampciayush
+  orgIdentifier: ayushtestorg
+  tags: {}
+  stages:
+    - stage:
+        name: ciso
+        identifier: ciso
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: pwd
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}

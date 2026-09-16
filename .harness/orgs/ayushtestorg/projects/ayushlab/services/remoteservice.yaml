@@ -34,4 +34,10 @@ service:
                 digest: ""
               identifier: remoteArtifact
               type: DockerRegistry
+      variables:
+        - name: college
+          type: String
+          description: ""
+          required: false
+          value: KIIT
     type: Kubernetes

@@ -14,6 +14,6 @@ template:
       source:
         type: Inline
         spec:
-          script: echo "setting up new-step to test webhook (now making change from github to sync with harness)"
+          script: echo "setting up new-step to test webhook (now making change from github to sync with harness-2)"
       environmentVariables: []
       outputVariables: []

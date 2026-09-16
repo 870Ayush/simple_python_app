@@ -14,6 +14,6 @@ template:
       source:
         type: Inline
         spec:
-          script: echo "hello world from harness NG"
+          script: echo "hello world from github-1"
       environmentVariables: []
       outputVariables: []

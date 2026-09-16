@@ -40,4 +40,9 @@ service:
           description: ""
           required: false
           value: KIIT
+        - name: city
+          type: String
+          description: ""
+          required: false
+          value: bengaluru
     type: Kubernetes

@@ -1,0 +1,19 @@
+template:
+  name: new-step
+  identifier: newstep
+  versionLabel: v0
+  type: Step
+  tags: {}
+  spec:
+    timeout: 10m
+    type: ShellScript
+    spec:
+      shell: Bash
+      executionTarget: {}
+      delegateSelectors: []
+      source:
+        type: Inline
+        spec:
+          script: echo "setting up new-step to test webhook"
+      environmentVariables: []
+      outputVariables: []

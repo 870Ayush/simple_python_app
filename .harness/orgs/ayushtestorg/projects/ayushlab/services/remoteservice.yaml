@@ -1,0 +1,48 @@
+service:
+  name: remote-service
+  identifier: remoteservice
+  orgIdentifier: ayushtestorg
+  projectIdentifier: ayushlab
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: remoteManifest
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: Ayush
+                  gitFetchType: Branch
+                  paths:
+                    - templates
+                  repoName: k8manifest
+                  branch: main
+              valuesPaths:
+                - ng_values_dockercfg.yaml
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: dockerk8stest
+                imagePath: library/python
+                tag: <+input>
+                digest: ""
+              identifier: remoteArtifact
+              type: DockerRegistry
+      variables:
+        - name: college
+          type: String
+          description: ""
+          required: false
+          value: KIIT
+        - name: city
+          type: String
+          description: ""
+          required: false
+          value: bengaluru
+    type: Kubernetes

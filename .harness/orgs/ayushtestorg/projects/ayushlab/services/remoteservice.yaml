@@ -26,7 +26,7 @@ service:
           sources:
             - spec:
                 connectorRef: dockerk8stest
-                imagePath: _/nginx
+                imagePath: library/nginx
                 tag: <+input>
                 digest: ""
               identifier: remoteArtifact

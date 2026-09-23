@@ -7,20 +7,17 @@ service:
     spec:
       manifests:
         - manifest:
-            identifier: remoteManifest
+            identifier: manifest
             type: K8sManifest
             spec:
               store:
-                type: Github
+                type: Harness
                 spec:
-                  connectorRef: Ayush
-                  gitFetchType: Branch
-                  paths:
-                    - templates
-                  repoName: k8manifest
-                  branch: main
+                  files:
+                    - /K8s-test-manifest
               valuesPaths:
-                - ng_values_dockercfg.yaml
+                - /values.yaml
+              optionalValuesYaml: false
               skipResourceVersioning: false
               enableDeclarativeRollback: false
       artifacts:

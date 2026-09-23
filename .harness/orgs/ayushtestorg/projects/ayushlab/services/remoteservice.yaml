@@ -1,0 +1,34 @@
+service:
+  name: remote-service
+  identifier: remoteservice
+  orgIdentifier: ayushtestorg
+  projectIdentifier: ayushlab
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: manifest
+            type: K8sManifest
+            spec:
+              store:
+                type: Harness
+                spec:
+                  files:
+                    - /deployment.yaml
+              valuesPaths:
+                - /values.yaml
+              optionalValuesYaml: false
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: dockerk8stest
+                imagePath: _/nginx
+                tag: <+input>
+                digest: ""
+              identifier: remoteArtifact
+              type: DockerRegistry
+    type: Kubernetes

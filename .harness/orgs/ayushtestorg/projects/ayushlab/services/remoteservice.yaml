@@ -14,7 +14,7 @@ service:
                 type: Harness
                 spec:
                   files:
-                    - /K8s-test-manifest
+                    - /deployment.yaml
               valuesPaths:
                 - /values.yaml
               optionalValuesYaml: false

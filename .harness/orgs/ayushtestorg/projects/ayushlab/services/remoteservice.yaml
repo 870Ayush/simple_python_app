@@ -26,20 +26,9 @@ service:
           sources:
             - spec:
                 connectorRef: dockerk8stest
-                imagePath: library/python
+                imagePath: 22ayush22/personal-repo
                 tag: <+input>
                 digest: ""
               identifier: remoteArtifact
               type: DockerRegistry
-      variables:
-        - name: college
-          type: String
-          description: ""
-          required: false
-          value: KIIT
-        - name: city
-          type: String
-          description: ""
-          required: false
-          value: bengaluru
     type: Kubernetes

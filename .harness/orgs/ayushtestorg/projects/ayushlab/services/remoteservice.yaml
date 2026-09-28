@@ -20,16 +20,6 @@ service:
               optionalValuesYaml: false
               skipResourceVersioning: false
               enableDeclarativeRollback: false
-        - manifest:
-            identifier: m
-            type: Values
-            spec:
-              store:
-                type: Harness
-                spec:
-                  files:
-                    - "<+<+infra.identifier> == \"infra\" ? \"/abhi-repro-values.yaml\" : \"/values.yaml\">"
-              optionalValuesYaml: false
       artifacts:
         primary:
           primaryArtifactRef: <+input>

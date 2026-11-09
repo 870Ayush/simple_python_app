@@ -20,7 +20,6 @@ pipeline:
           cloneCodebase: true
           caching:
             enabled: true
-            override: true
           buildIntelligence:
             enabled: true
           infrastructure:
@@ -41,3 +40,4 @@ pipeline:
                     connectorRef: ayushdockerconnector
                     repo: 22ayush22/personal-repo
                     tags: <+input>
+                    enableDockerLayerCaching: true
